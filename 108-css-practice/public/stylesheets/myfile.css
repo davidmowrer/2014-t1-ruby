@@ -1,0 +1,20 @@
+.inverse {
+	background-color:black;
+	color:white;
+	border:1px black solid;
+}
+.smalltext {
+	font-size: 10pt; width:150px; padding: 1px 1px 1px 100px;
+}
+.border {
+	border:10px black solid; padding: 10px 10px 10px 10px;
+}
+.thinborder{
+	border:1px black solid; padding: 120px 120px 120px 120px;
+}
+.centered{
+	text-align: center; width: 400px; padding: 1px 1px 1px 300px;
+}
+.bluebox{
+	box-shadow:1px 1px 20px blue; font-size:17pt; white; color: white; text-shadow: 1px 1px 20px blue; padding: 15px 0px 15px 15px;
+}
