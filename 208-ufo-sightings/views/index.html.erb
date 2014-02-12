@@ -1,3 +1,66 @@
 <h1>UFO sightings</h1>
 
+<table border="1">
+
+	<tr><th>Date</th></tr>
+	<tr><td>2001-07-15 At least 15 people, including 2 police officers, stopped their cars along the New Jersey Turnpike to view light formations in the night sky.
+	</td></tr>
+	<tr><th>City</th></tr>
+	<tr><td>Cateret</td></tr>
+	<tr><th>State</th></tr>
+	<tr><td>New Jersey</td></tr>
+	
+	<tr><th>Date</th></tr>	
+	<tr><td>2004-03-05 A drug-smuggling air-patrol recorded on infrared camera what some claimed to be UFOs. The footage was released by Jaime Maussan. The objects were however convincingly correlated with the burn-off flares of oil platforms.
+	</td></tr>
+	<tr><th>City</th></tr>
+	<tr><td>None</td></tr>
+	<tr><th>State</th></tr>
+	<tr><td>Mexico</td></tr>
+	
+	<tr><th>Date</th></tr>
+	<tr><td>2006-11-07 United Airlines employees and pilots claimed sightings of a saucer-shaped, unlit craft hovering over a Chicago O'Hare Airport terminal, before shooting up vertically
+	</td></tr>
+	<tr><th>City</th></tr>
+	<tr><td>Chicago</td></tr>
+	<tr><th>State</th></tr>
+	<tr><td>Illinois</td></tr>
+</table>
+
+<h1>UFO sightings</h1>
+
+<table border="1">
+
+	<% 3.times do %>
+		<tr><th>Date</th></tr>
+		<tr><td>2006-11-07 United Airlines employees and pilots claimed sightings of a saucer-shaped, unlit craft hovering over a Chicago O'Hare Airport terminal, before shooting up vertically
+		<tr><th>City</th></tr>
+		<tr><td>Chicago</td></tr>
+		<tr><th>State</th></tr>
+		<tr><td>Illinois</td></tr>
+	<% end %>
+
+</table>
+
+<br>
+
+	<table border="1">
+		<tr>
+		<th>Date</th>
+		
+		<th>City</th>
+
+		<th>State</th>
+	</tr>
+		
+		<% UfoSighting.order(:id).each do |s| %>
+		<tr>
+			<td><%= s.date %></td> 
+		<td><%= s.city %></td> 
+		<td><%= s.state %></td>
+	</tr> 
+	<% end %>
+	
+</table>		
+ 
 <!-- TODO: write this -->
