@@ -1,8 +1,23 @@
 <h1>World cities</h1>
 
-<!-- TODO: write this -->
+<table class="table">
 
-<p>
-Here's an example flag image:
-<img src="/images/uk.png">
-</p>
+  <tr>
+    <th>City Name</th>
+    <th>Country Flag</th>
+    <th>Time Zone</th>
+    <th>Population</th>
+  </tr>
+
+  <% City.order(:id).each do |c| %>
+    <tr>
+      <td><%= c.City_Name %>, 
+      <td>
+        <img src="/images/<%= c.Country_Flag %>">
+      </td>
+      <td><%= c.Time_Zone %></td>
+      <td><%= c.Poputation %>
+    </tr>
+  <% end %>
+</table>
+
