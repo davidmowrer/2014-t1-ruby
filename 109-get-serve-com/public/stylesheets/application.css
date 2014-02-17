@@ -1,3 +1,39 @@
 body {
   font-family: sans-serif;
 }
+.top {
+	background-color: #800;
+	padding: 10px;
+	color: white;
+	padding: 20px 50px 20px 50px;
+}	
+.top-logo {
+	/*font-family: italic;*/
+	font-family: cursive;
+	font-size: 50px; 
+	font-weight: bold;
+}
+.top-sites {
+	background-color: ;
+	color: red;
+	padding: 50px 0 0 0; 
+}
+.latest-news {
+  margin: 30px 0 30px 0;
+  padding: 20px 20px 20px 20px;
+  background-color: #cef;
+  font-size: 22px;
+}
+.footer {
+  background-color: #fdd;
+  padding: 40px 20px 40px 20px;
+ }
+a {
+  color: red;
+}
+h3 {
+  font-size: 19px;
+ }
+h2 {
+  margin: 30px 0 30px 0;
+}

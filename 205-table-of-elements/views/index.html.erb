@@ -1,3 +1,20 @@
 <h1>Chemical elements</h1>
 
-<!-- TODO: fill in this part -->
+<table border='1'>
+	<tr>
+		<td>ID</td>
+		<td>Number</td>
+		<td>Symbol</td>
+		<td>Name</td>
+	</tr>
+	<% Element.order(:id).each do |e| %>
+		<tr>
+			<td><%= e.id %></td>
+			<td><%= e.number %></td>
+			<td><%= e.symbol%></td>
+			<td><%= e.name %></td>
+		</tr>
+	<% end %>	
+</table>
+
+
