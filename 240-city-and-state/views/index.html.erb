@@ -4,9 +4,8 @@
   <% @cities.each do |city| %>
     <li>
       <a href="/cities/<%= city.id %>">
-        <%= city.rank %>.
-        <%= city.name %>, <%= city.state_abbreviation %>
-        (population <%= city.population %>)
+        <%= city.rank %>. "#{city.name},
+        #{city.state_abbreviation} (population #{city.population})" %>
       </a>
     </li>
   <% end %>

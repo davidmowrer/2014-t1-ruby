@@ -1,3 +1,12 @@
-<h1>Chemical elements</h1>
+<h1>Chemical elements</h>
 
-<!-- TODO: write this -->
+<ul>
+  <% Element.order(:number).each do |element| %>
+    <li>
+      <%= element.number %>.
+      <a href="/elements/<%= element.id %>">
+        <%= element.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>

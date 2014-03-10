@@ -34,6 +34,23 @@
     </tr>
   <% end %>
 
-  <!-- TODO: add new <tr> with text fields here -->
+  <tr>
+    <td>(new)</td>
+    <td>
+      <%= text_field_tag "address", "", size: 30 %>
+    </td>
+    <td>
+      <%= text_field_tag "rent", "", size: 5 %>
+    </td>
+    <td>
+      <%= text_field_tag "pets", "", size: 1 %>
+    </td>
+    <td>
+      <%= text_field_tag "url", "", size: 25 %>
+    </td>
+    <td>
+      <%= submit_tag "Create" %>
+    </td>
+  </tr> 
 
 </table>

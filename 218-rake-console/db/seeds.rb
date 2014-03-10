@@ -1,8 +1,26 @@
-Element.create! number: 1, symbol: "H" , name: "Hydrogen"
-Element.create! number: 2, symbol: "He", name: "Helium"
-Element.create! number: 3, symbol: "Li", name: "Lithium"
-Element.create! number: 4, symbol: "Be", name: "Berylium"
-Element.create! number: 5, symbol: "B",  name: "Boron"
+Element.create! \
+ number: 1,
+ symbol: "H",
+ name: "Hydrogen"
+
+Element.create! \
+ number: 2,
+ symbol: "He",
+ name: "Helium"
+
+Element.create! \
+ number: 3,
+ symbol: "Li",
+ name: "Lithium"
+
+Element.create! \
+ number: 4,
+ symbol: "Be",
+ name: "Berylium"
+Element.create! \
+ number: 5,
+ symbol: "B",
+ name: "Boron"
 
 WorldCity.create! \
   name: "London",
@@ -24,3 +42,4 @@ WorldCity.create! \
   country_flag_filename: "prc.png",
   time_zone_offset: 8,
   population_in_millions: 14
+

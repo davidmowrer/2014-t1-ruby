@@ -1,5 +1,11 @@
 <% @cars.each do |car| %>
-  <h2>
-    Who has the <%= car.model %>?
-  </h2>
+
+	<% if car.member_id != nil %>
+  		<h2>
+   			<%= Member.find_by(id: car.member_id).username %> has the <%= car.model %>
+  		</h2>
+  	<% else %>
+  		<h2> No one has the <%= car.model %> </h2>
+  	<% end %>
+
 <% end %>

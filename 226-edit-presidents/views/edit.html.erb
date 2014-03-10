@@ -1,3 +1,56 @@
 <h1>Edit president</h1>
 
-<!-- TODO: write this part to match the mockup -->
+<p>
+	<%= label_tag "Name" %>
+	<br>
+	<%= text_field_tag "name", @president.name %>
+	<br>
+</p>
+<p>
+	<%= label_tag "Biography" %>
+	<br>
+	<%= text_area_tag "biography", @president.biography, size: 60 %>
+</p>
+	<%= label_tag "Ended term early"  %>
+	<br>
+	<%= check_box_tag "ended term early", "on", @president.ended_term_early %>
+</p>
+<p>
+	<%= label_tag "Party" %>
+	<br>
+	<%= radio_button_tag "party", "democrat",
+	 @president.party == "democrat" %>
+	 <%= label_tag "party_democrat", "Democrat" %>
+
+	 <%= radio_button_tag "party", "republican",
+	 @president.party == "republican" %>
+	 <%= label_tag "party_republican", "Republican" %>
+
+	 <%= radio_button_tag "party", "whig",
+	 @president.party == "whig" %>
+	 <%= label_tag "party_whig", "Whig" %>
+</p>
+<p>
+	<%= label_tag "former_occupation" %>
+	<br>
+	<%= select_tag "former_occupation",
+		options_for_select(
+			["clothing retailer", "farmer", "lawyer", "sailor", "soldier"],
+			@president.former_occupation),
+			prompt: "Choose a occupation..." %>
+</p>
+<p>
+	<%= label_tag "birth_state_id" %>
+	<br>
+	<%= select_tag "birth_state_id", 
+		options_from_collection_for_select(State.all, :id, :name,
+			@president.birth_state_id),
+			prompt: "Choose a State..." %>
+</p>
+<p>
+	<%= submit_tag "Revise history" %>
+</p>
+
+
+
+

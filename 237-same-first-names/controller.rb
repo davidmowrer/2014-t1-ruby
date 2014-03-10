@@ -5,14 +5,34 @@ get "/" do
 end
 
 post "/" do
-  # TODO: If no one has that first name, show no_one.html.erb
-  # TODO: If one person has that first name, show number.html.erb with
-  #       their info.
-  # TODO: If 2+ people have that first name, show choose.html.erb
-  #       to let the user choose between the people with that first name.
+	first_name = params["first_name"]
+	people = Person.where(first_name: first_name)
+	if people.size == 0
+		halt erb(:no_one)
+	
+
+	# elsif @person = Person.find_by(first_name: first_name)
+	elsif @person = Person.where(first_name: first_name)	
+		people.size == 1
+		halt erb(:number)
+	else people.size > 1
+		@people = people
+		halt erb(:choose)
+	# elsif people.size > 1
+	# 	@people = people
+	# 	halt erb(:choose)
+	# else @person = Person.find_by(first_name: first_name)
+	# 	halt erb(:number)
+	end
 end
+  
 
 get "/person/:first/:last" do
-  # TODO: Show the info for the person with the first and last name
-  #       specified in the route.
+	first  = params["first"]
+	last   = params["last"]
+	@person = Person.find_by(first_name: first, last_name: last)
+	halt erb(:number)
 end
+
+
+

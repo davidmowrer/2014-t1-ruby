@@ -16,6 +16,12 @@ post "/patients/:id" do
   @patient           = Patient.find(id)
   @patient.systolic  = params["systolic"]
   @patient.diastolic = params["diastolic"]
-  @patient.save!
-  redirect "/"
+
+  if params["commit"] == "Save"
+    @patient.save!
+     redirect "/"
+  elsif params["commit"] == "Delete"
+    @patient.destroy
+  end
+
 end
