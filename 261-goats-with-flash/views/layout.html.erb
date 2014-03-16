@@ -7,9 +7,16 @@
     <link rel="stylesheet" type="text/css" href="/stylesheets/application.css">
   </head>
   <body>
+    
     <% if flash[:error] != nil %>
       <div class="alert alert-danger">
         <%= flash[:error] %>
+      </div>
+    <% end %>
+
+    <% if flash[:notice] != nil %>
+      <div class="alert alert-notice">
+        <%= flash[:notice] %>
       </div>
     <% end %>
 

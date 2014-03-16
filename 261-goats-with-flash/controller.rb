@@ -1,15 +1,60 @@
 require './davinci-sinatra.rb'
 
-# Setup handler for index page at GET / route
 get "/" do
   @goats = RacingGoat.all
   halt erb(:index)
 end
 
-# TODO: Setup GET handler for form to fill out to create a new goat
+get "/new_goat" do
+  @goat = RacingGoat.new
+  halt erb(:edit)
+end
 
-# TODO: Setup POST handler for when the new goat form is submitted.
+post "/new_goat" do
+  @goat                     = RacingGoat.new
+  @goat.name                = params["name"]
+  @goat.gender              = params["gender"]
+  @goat.best_100m_time      = params["best_100m_time"]
+  @goat.dietary_preference  = params["dietary_preference"]
 
-# TODO: Setup GET handler for add/edit goat details form
+  if @goat.save == true
+    flash[:notice] = "Record has been created."
+    redirect "/"
+  else
+    halt erb(:edit)
+  end
 
-# TODO: Setup POST handler for submitted add/edit goat details form
+end
+
+get "/goats/:id" do
+  id = params["id"]
+  @goat = RacingGoat.find(id)
+  halt erb(:edit)
+end
+
+post "/goats/:id" do
+  id = params["id"]
+  @goat = RacingGoat.find(id)
+
+  if params["commit"]         == "Save" 
+    @goat.name                = params["name"]
+    @goat.gender              = params["gender"]
+    @goat.best_100m_time      = params["best_100m_time"]
+    @goat.dietary_preference  = params["dietary_preference"]
+
+    if @goat.save == true
+      flash[:notice] = "Record has been updated."
+      redirect "/"
+    else
+      halt erb(:edit)
+    end
+
+  elsif params["commit"] == "Delete" 
+    @goat.destroy
+    flash[:notice] = "Record has been deleted."
+    redirect "/"
+  end
+
+end
+
+
