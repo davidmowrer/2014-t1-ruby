@@ -10,7 +10,7 @@ get "/" do
 post "/" do
   	color  = params["color"]
   	letter = params["letter"]
- 	number = params["number"]
+ 	  number = params["number"]
 
    	session[:color]  = color
    	session[:letter] = letter
