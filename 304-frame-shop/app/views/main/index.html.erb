@@ -1,0 +1,41 @@
+<%= form_tag "/" do %>
+
+<%= error_messages_for @new_order %>
+
+<h1>Order a custom frame</h1>
+
+<table class="table">
+  <tr>
+    <th></th>
+    <th>Name of material</th>
+    <th>Base price</th>
+  </tr>
+  <% Wood.order(:id).each do |w| %>
+    <tr>
+      <td><%= radio_button_tag :material_nbr, w.id,
+        @new_order.material_nbr == w.id %>
+      <td><%= w.name %></td>
+      <td>$<%= "%.2f" % w.cost %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+  <%= label_tag :num_lin_inc, "Number of linear inches" %>
+  <%= text_field_tag :num_lin_inc, @new_order.num_lin_inc %>
+  <br>
+  (Add $1.00 per inch to base price)
+</p>
+
+<p>
+  <%= check_box_tag :inc_hang_hware %>
+  <%= label_tag :inc_hang_hware, "Include hanging hardware?" %>
+  <br>
+  (Add an extra $0.50 if checked)
+</p>
+
+<p>
+  <%= submit_tag "Place order" %>
+</p>
+
+<% end %>
