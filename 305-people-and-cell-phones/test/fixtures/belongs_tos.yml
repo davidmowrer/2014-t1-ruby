@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  : 
+  class_name: MyString
+  Cell_Phone,: MyString
+  foreign_key: MyString
+  cell_phone_id: MyString
+
+two:
+  : 
+  class_name: MyString
+  Cell_Phone,: MyString
+  foreign_key: MyString
+  cell_phone_id: MyString
