@@ -1,5 +1,12 @@
+Actor.create! id: 1, name: "Fred"
+Actor.create! id: 2, name: "Lynne"
+Actor.create! id: 3, name: "Cathy"
 ActiveRecord::Base.connection.reset_pk_sequence! "actors"
-
+Play.create! id: 1, name: "MacBeth"
+Play.create! id: 2, name: "Twenty Nights"
+Play.create! id: 3, name: "Hamlet"
 ActiveRecord::Base.connection.reset_pk_sequence! "plays"
-
-ActiveRecord::Base.connection.reset_pk_sequence! "castings"
+Role.create! id: 1, actor_id: 1, play_id: 1, role: "MacBeth"
+Role.create! id: 2, actor_id: 2, play_id: 1, role: "Lady MacBeth"
+Role.create! id: 3, actor_id: 2, play_id: 2, role: "Viola"
+ActiveRecord::Base.connection.reset_pk_sequence! "roles"
