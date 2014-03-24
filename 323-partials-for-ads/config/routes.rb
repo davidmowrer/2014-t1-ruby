@@ -1,15 +1,15 @@
 App::Application.routes.draw do
-  get    "/"             => "ads#root"
+  get  "/"               => "ads#root"
 
-  resources "ads", path: "/ads", controller: "ads",
-    only: [:index, :create, :new, :edit, :show, :update, :destroy]
-  # The above two lines expand to:
-  #   get    "/ads"          => "ads#index"
-  #   post   "/ads"          => "ads#create"
-  #   get    "/ads/new"      => "ads#new"
-  #   get    "/ads/:id/edit" => "ads#edit"
-  #   get    "/ads/:id"      => "ads#show"
-  #   patch  "/ads/:id"      => "ads#update"
-  #   put    "/ads/:id"      => "ads#update"
-  #   delete "/ads/:id"      => "ads#destroy"
+  get  "/list_ads"       => "ads#list_ads"
+
+  get  "/new_ad"         => "ads#new_ad"
+  post "/new_ad"         => "ads#new_ad_post"
+
+  get  "/show_ad/:id"    => "ads#show_ad"
+
+  get  "/edit_ad/:id"    => "ads#edit_ad"
+  post "/edit_ad/:id"    => "ads#edit_ad_post"
+
+  get  "/destroy_ad/:id" => "ads#destroy_ad"
 end

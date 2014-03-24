@@ -2,19 +2,19 @@
 
 <%= error_messages_for @ad %>
 
-<%= form_tag @ad, method: "PUT" do %>
+<%= form_tag "/edit_ad/#{@ad.id}" do %>
   <div class="field">
-    <%= label_tag :company_name %><br>
-    <%= text_field_tag :company_name, @ad.company_name %>
+    <%= label_tag "company_name" %><br>
+    <%= text_field_tag "company_name", @ad.company_name %>
   </div>
   <div class="field">
-    <%= label_tag :duration %><br>
-    <%= text_field_tag :duration, @ad.duration %>
+    <%= label_tag "duration" %><br>
+    <%= text_field_tag "duration", @ad.duration %>
   </div>
   <div class="actions">
     <%= submit_tag "Update" %>
   </div>
 <% end %>
 
-<%= link_to "Show", @ad %> |
-<%= link_to "Back", ads_path %>
+<a href="/show_ad/<%= @ad.id %>">Show</a> |
+<a href="/list_ads">Back</a>
