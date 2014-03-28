@@ -1,0 +1,80 @@
+<%= form_tag "/" do %>
+
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Price each</th>
+    <th>Quantity</th>
+    <th>Update</th>
+    <th>Line price</th>
+  </tr>
+  <% @products.each do |product| %>
+    <% line = CartLine.find_by(cart_id: @cart.id, product_id: product.id) %>
+    <tr>
+      <td>
+        <%= image_tag product.image_filename %>
+      </td>
+      <td>
+        <%= product.name %>
+      </td>
+      <td>
+        $<%= sprintf('%.2f', product.price_per_item) %>
+      </td>
+      <td>
+        <%= text_field_tag "quantity_#{product.id}", 
+          line.quantity,
+          class: "quantity" %>
+      </td>
+      <td>
+        <%= submit_tag "Update" %>
+      </td>
+      <td>
+        $<%= sprintf('%.2f', line.quantity * product.price_per_item) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<br clear="both">
+
+<p>
+  <b>Choose shipping method:</b><br>
+
+  <% @ship_methods.each do |ship_method| %>
+
+    <%= radio_button_tag :ship_method_id, ship_method.id,
+      @cart.ship_method_id == ship_method.id %>
+    <%= ship_method.name %> 
+    $<%= sprintf('%.2f', ship_method.price_per_cart) %>
+    + $<%= sprintf('%.2f', ship_method.price_per_item) %> each item
+    <br>
+
+  <% end %>
+
+  <%= submit_tag "Update" %>
+
+  <%
+  ship_total = @cart.ship_method.price_per_cart
+  @cart.cart_lines.each do |line|
+    ship_total = ship_total + line.quantity * @cart.ship_method.price_per_item
+  end
+  %>
+
+  Shipping total is:
+  $<%= sprintf('%.2f', ship_total) %>
+</p>
+
+<p>
+  <%
+  total_price = ship_total
+  @cart.cart_lines.each do |line|
+    total_price = total_price + line.quantity * line.product.price_per_item
+  end
+  %>
+
+  <b>Total price</b>
+  $<%= sprintf('%.2f', total_price) %>
+</p>
+
+<% end %>

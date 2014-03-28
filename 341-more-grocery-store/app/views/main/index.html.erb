@@ -1,0 +1,63 @@
+<%= form_tag "/" do %>
+
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Price each</th>
+    <th>Quantity</th>
+    <th>Update</th>
+    <th>Line price</th>
+  </tr>
+  <% @products.each do |product| %>
+    <tr>
+      <td>
+        <%= image_tag product.image_filename %>
+      </td>
+      <td>
+        <%= product.name %>
+      </td>
+      <td>
+        $<%= sprintf('%.2f', product.price_per_item) %>
+      </td>
+      <td>
+        TODO
+      </td>
+      <td>
+        <%= submit_tag "Update" %>
+      </td>
+      <td>
+        TODO
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<br clear="both">
+
+<p>
+  <b>Choose shipping method:</b><br>
+
+  <% @ship_methods.each do |ship_method| %>
+
+    <%= radio_button_tag :ship_method_id, ship_method.id,
+      @cart.ship_method_id == ship_method.id %>
+    <%= ship_method.name %> 
+    $<%= sprintf('%.2f', ship_method.price_per_cart) %>
+    + $<%= sprintf('%.2f', ship_method.price_per_item) %> each item
+    <br>
+
+  <% end %>
+
+  <%= submit_tag "Update" %>
+
+  Shipping total is:
+  TODO
+</p>
+
+<p>
+  <b>Total price</b>
+  TODO
+</p>
+
+<% end %>
