@@ -1,0 +1,26 @@
+<div style="float:right;width:300px">
+  <%= form_tag login_path, class: "login" do %>
+    <h2>Login</h2>
+
+    <%= label_tag "email" %>
+    <%= text_field_tag "email" %>
+    <br>
+
+    <%= label_tag "password" %>
+    <%= password_field_tag "password" %>
+    <br>
+
+    <%= submit_tag "Login" %>
+
+    <p>
+      <%= link_to "Need to create an account?", new_user_path %>
+    </p>
+  <% end %>
+</div>
+
+<h1>List of users</h1>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.email %></li>
+  <% end %>
+</ul>
