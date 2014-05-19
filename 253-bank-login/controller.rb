@@ -32,6 +32,7 @@ post "/login" do
  
 get "/accounts" do
   @user = session[:user_id] 
+  raise @user.inspect
   halt erb(:accounts)
 end
 
